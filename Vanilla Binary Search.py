@@ -51,8 +51,6 @@ def example4():
     return index
 
 if __name__ == '__main__':
-    arr = [1,3,5,7,8]
-    target = 5
     res = example1()
     print(res)
     res = example2()
