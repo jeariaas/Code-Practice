@@ -15,30 +15,67 @@ from typing import List
 
 def find_boundary(arr: List[bool]) -> int:
     # WRITE YOUR BRILLIANT CODE HERE
-    return 0
+    left, right = 0, len(arr) -1
+    boundary = -1
+
+    while left <= right:
+        mid = (left + right)//2
+        if arr[mid]:
+            boundary = mid
+            right = mid - 1
+        else:
+            left = mid + 1
+    return boundary
+
+def alternate_find_bundary(arr: List[bool]) -> int: #This could keeps track of the current element in the search range and doesnt discard it. However it has a modified leave case, as to not induce a forever while loop
+    # WRITE YOUR BRILLIANT CODE HERE
+    left, right = 0, len(arr) -1
+    boundary = -1
+
+    while left < right:
+        mid = (left + right)//2
+        if arr[mid]:
+            boundary = mid
+            right = mid
+        else:
+            left = mid + 1
+
+    return boundary
 
 def example1():
     arr = [False, False, False, True, True, True]
-    target = True
-    index = find_boundary(arr, target)
+    # index = find_boundary(arr)
+    index = alternate_find_bundary(arr)
     return index
 
 def example2():
     arr = [False, False, False, False, False]
-    target = 0
-    index = find_boundary(arr, target)
+    # index = find_boundary(arr)
+    index = alternate_find_bundary(arr)
     return index
 
 def example3():
     arr = [True, True, True, True, True]
-    target = 120
-    index = find_boundary(arr, target)
+    # index = find_boundary(arr)
+    index = alternate_find_bundary(arr)
     return index
 
 def example4():
-    arr = [10,20]
-    target = 20
-    index = find_boundary(arr, target)
+    arr = [False]
+    # index = find_boundary(arr)
+    index = alternate_find_bundary(arr)
+    return index
+
+def example5():
+    arr = [True]
+    # index = find_boundary(arr)
+    index = alternate_find_bundary(arr)
+    return index
+
+def example6():
+    arr = []
+    # index = find_boundary(arr)
+    index = alternate_find_bundary(arr)
     return index
 
 if __name__ == '__main__':
@@ -49,4 +86,8 @@ if __name__ == '__main__':
     res = example3()
     print(res)
     res = example4()
+    print(res)
+    res = example5()
+    print(res)
+    res = example6()
     print(res)
