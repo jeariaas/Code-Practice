@@ -17,8 +17,7 @@ def find_min_rotated(arr: List[int]) -> int:
 
 
 def example1():
-    arr = [1, 3, 3, 5, 8, 8, 10]
-
+    arr = [30,40,50,10,20]
     index = find_min_rotated(arr)
     return index
 
