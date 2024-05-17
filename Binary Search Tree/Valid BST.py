@@ -6,20 +6,21 @@ class Node:
         self.left = left
         self.right = right
 
-def valid_bst(root: Node) -> bool:
+def valid_bst(root: Node) -> bool: #return value is a boolean true/false
     # WRITE YOUR BRILLIANT CODE HERE
 
-    def dfs(root, min_value, max_value):
-        
-        if not root:
-            return True
-        
-        if not (min_value < root.val < max_value):
-            return False
+        def validate(root, min_val, max_value):
 
-        return dfs(root.left, min_value, root.val) and dfs(root.right, root.val, max_value)
+            if not root:
+                 return True
+            elif (root.val != None and root.val >= max_value) or (root.val != None and root.val <= min_val):
+                 
 
-    return dfs(root, -inf, inf)
+            return
+        
+        return validate(root, -inf, inf)
+
+    
 
 # this function builds a tree from input; you don't have to modify it
 # learn more about how trees are encoded in https://algo.monster/problems/serializing_tree
