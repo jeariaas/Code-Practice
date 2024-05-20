@@ -14,7 +14,6 @@ def lca(root, node1, node2): #returning an int
     left = lca(root.left, node1, node2)
     right = lca(root.right, node1, node2)
 
-    if 
 
 
     return lca(root, node1, node2)
