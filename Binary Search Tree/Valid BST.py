@@ -14,10 +14,9 @@ def valid_bst(root: Node) -> bool: #return value is a boolean true/false
             if not root:
                  return True
             elif (root.val != None and root.val >= max_value) or (root.val != None and root.val <= min_val):
-                 
-
-            return
-        
+                 return False
+            
+            return validate(root.left, min_val, root.val) and validate(root.right, root.val, max_value)
         return validate(root, -inf, inf)
 
     
