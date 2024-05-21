@@ -7,23 +7,27 @@ class Node:
         self.val = val
         self.children = children
 
-def ternary_tree_paths(root: Node) -> List[str]:
-    def dfs(root, path, res):
-        
-        if all(c is None for c in root.children):
-            res.append('->'.join(path) + '->' + str(root.val))
+def ternary_tree_paths(root: Node) -> List[str]: #input is a root with children, ouput is a list of results.
+
+
+    def dfs(root: Node, path: List[str]):
+        #create a condition that knows when we've reached the end of the branch. This case is when all of the root's children are null.
+
+        if all(child is None for child in root.children):
+            #need to figure out how to get the exact output we want.
+            result.append('->'.join(path) + '->' + str(root.val))
+            # print(path)
             return
 
         for child in root.children:
             if child is not None:
                 path.append(str(root.val))
-                dfs(child, path, result)
+                dfs(child, path)
                 path.pop()
 
-    
+
     result = []
-    if root:
-        dfs(root, [], result)
+    dfs(root, [])
     return result
 
 # this function builds a tree from input; you don't have to modify it
