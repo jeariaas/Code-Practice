@@ -1,15 +1,11 @@
 from typing import List
 
-def partition(s: str) -> List[List[str]]: #Returns a list of list of strings
+def partition(s: str) -> List[List[str]]:
     # WRITE YOUR BRILLIANT CODE HERE
-
-    def dfs(start_index, path):
-        #need to find the condition that the loop finishes. this case its the start index equaling the length of the string
-        if start_index == len(s):
-            result.append(path)
-            return
-        
-    def ispalindrome(string) -> bool:
+    
+    end_cond = len(s)
+    
+    def isPalindrome(string: str) -> bool:
         start, end = 0, len(string) - 1
         if len(string) == 1 or len(string) == 0:
             return True
@@ -20,12 +16,21 @@ def partition(s: str) -> List[List[str]]: #Returns a list of list of strings
             else:
                 return False
         return True
-
-    result = []
-    ispalindrome(s)
-    dfs(0, [])
-    return []
+        
     
+    def dfs(start_index: int, current_path: list):
+        
+        if start_index == end_cond:
+            result.append(current_path)
+            return
+        for end in range(start_index + 1, end_cond + 1):
+            prefix = s[start_index: end]
+            if isPalindrome(prefix):
+                dfs(end, current_path + [prefix])
+    
+    result = []
+    dfs(0,[])
+    return result
 
 if __name__ == '__main__':
     s = input()
