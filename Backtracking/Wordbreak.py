@@ -2,6 +2,10 @@ from typing import List
 
 def word_break(s: str, words: List[str]) -> bool:
     # WRITE YOUR BRILLIANT CODE HERE
+
+    def dfs(start_index, path)
+    
+
     return False
 
 if __name__ == '__main__':
