@@ -2,7 +2,6 @@ from typing import List
 
 sensorA = [15,-4,56,10,-23]
 sensorB = [14,-9,56,14,-23]
-ans = 0
 
 def absDiff(start_index, result) -> int:
     # WRITE YOUR BRILLIANT CODE HERE

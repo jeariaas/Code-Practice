@@ -9,19 +9,22 @@ from typing import List
 
 
 def letter_combination(n):
+    if n == 0:
+        return ''
     def dfs(start_index, path):
         if start_index == n:
-            res.append(''.join(path))
+            result.append(''.join(path))
             return
-
-        for letter in ['a', 'b']:
+        
+        letters = ['a', 'b']
+        for letter in letters:
             path.append(letter)
             dfs(start_index+1, path)
             path.pop()
-
-    res = []
+    
+    result = []
     dfs(0, [])
-    return res
+    return result
 
 
 if __name__ == '__main__':
