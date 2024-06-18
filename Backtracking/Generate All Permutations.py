@@ -18,7 +18,6 @@ def permutations(letters: str) -> List[str]:
 
     result = []
     dfs(0, [], [False]*len(letters))
-    print(result)
     return []
 
 if __name__ == '__main__':
