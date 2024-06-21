@@ -1,6 +1,8 @@
 from collections import deque
 from typing import List
 
+#Input: 1 2 4 x 7 x x 5 x x 3 x 6 x x
+
 class Node:
     def __init__(self, val, left=None, right=None):
         self.val = val
@@ -11,16 +13,28 @@ def level_order_traversal(root: Node) -> List[List[int]]:
     # WRITE YOUR BRILLIANT CODE HERE
 
     def bfs(root):
+        if not root:
+            return []
+        
         queue = deque([root])
         while len(queue) > 0:
-            node = queue.popleft()
-            result.append(node.val)
-            for child in [node.left, node.right]:
+            path = []
+            copy = queue.copy()
+            for copy_node in copy:
+                path.append(copy_node.val)
+                node = queue.popleft()
+                queue = get_children(node, queue)
+            result.append(path)
+
+        return result
+    
+    def get_children(root, queue):
+        for child in [root.left, root.right]:
                 if not child:
                     continue
                 queue.append(child)
-                print(child.val)
-        return
+                # print(child.val)
+        return queue
 
     result = []
     bfs(root)
