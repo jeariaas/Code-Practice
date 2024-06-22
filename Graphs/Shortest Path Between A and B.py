@@ -12,22 +12,24 @@ from collections import deque
 def shortest_path(graph: List[List[int]], a: int, b: int) -> int:
     # WRITE YOUR BRILLIANT CODE HERE
 
-    def bfs(path):
+    def bfs(root, target):
         
-        queue = deque()
-        queue.append(0)
-        visited.append(queue[0])
-
-        while len(queue) != 0:
-            for neighbors in graph[queue[0]]:
+        queue = deque([root])
+        visited = set()
+        level = 0
+        while len(queue) > 0:
+            node = queue.popleft()
+            if node == target:
+                return level
+            if node in visited:
+                continue
+            visited.add(node)
+            for neighbors in graph[node]:
                 print(neighbors)
+                queue.append(neighbors)
+            level +=1
 
-        return
-
-    result = []
-    visited = []
-    bfs([])
-    return 0
+    return bfs(a, b)
 
 if __name__ == '__main__':
     graph = [[int(x) for x in input().split()] for _ in range(int(input()))]
