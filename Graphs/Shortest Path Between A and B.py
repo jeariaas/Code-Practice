@@ -34,6 +34,7 @@ def shortest_path(graph: List[List[int]], a: int, b: int) -> int:
                 for neighbor in graph[node]:
                     if neighbor in visited:
                         continue
+                    
                     queue.append(neighbor)
                     visited.add(neighbor)
             level +=1
