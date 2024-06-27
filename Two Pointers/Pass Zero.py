@@ -8,19 +8,20 @@ from typing import List
 
 def move_zeros(nums: List[int]) -> None:
     # WRITE YOUR BRILLIANT CODE HERE
-    left = 0s
-    right = 0
+    # slow = 0
+    # for fast in range(len(nums)):
+    #     if nums[fast] != 0:
+    #         nums[slow], nums[fast] = nums[fast], nums[slow]
+    #         slow += 1
+    # return nums
 
-    while right < len(nums):
-        if nums[left] == 0 and nums[right] != 0:
-            nums[left] = nums[right]
-            nums[right] = 0
-            left = right
-            continue
-        elif nums[left] != 0 and nums[right] == 0:
-            left +=1
-            right +=1
-            continue
+    slow = 0
+    
+    for fast in range(len(nums)):
+        if nums[fast] != 0:
+            nums[slow] = nums[fast]
+            nums[fast] = nums[slow]
+            slow +=1
     return nums
 
 if __name__ == '__main__':
