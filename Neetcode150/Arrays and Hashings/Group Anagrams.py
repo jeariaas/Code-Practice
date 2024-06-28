@@ -17,30 +17,6 @@ from typing import List
 
 def groupAnagrams(strs: List[str]) -> List[List[str]]:
     
-    ans = {}
-    temp = {}
-    for word in strs:
-        for letter in word:
-            # print(letter)
-            if letter in temp:
-                temp[letter] +=1
-            else:
-                temp.update({letter : 1})
-        ans.update({word: temp.copy()})
-        temp.clear()
-    # print(ans)
-    answer = []
-    temporary = []
-    for example, map in ans.items():
-        for example2, map2 in ans.items():
-            if map == map2:
-                temporary.append(example)
-        answer.append(temporary.copy())
-        temporary.clear()    
-    print(answer)
-    
-
-
     
     return
 
