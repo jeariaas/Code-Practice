@@ -37,6 +37,4 @@ After the loop append the rest of whatever list is not already None. This means 
 
 Next we return dummy.next. We return this because dummy points to the first node of node. However the first node of node is also 0 because it is initialized that way.
 Therefore we need to return dummy.next because it will point to the actual head of node, which is node.next.
-
-
 '''
